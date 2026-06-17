@@ -1,9 +1,9 @@
-package com.example.familypizza.data
+package com.example.familypizza.data.local
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
-import androidx.room.ColumnInfo
 
 @Entity(
     tableName = "usuarios",

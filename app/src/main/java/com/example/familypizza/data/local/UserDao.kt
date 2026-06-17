@@ -1,4 +1,4 @@
-package com.example.familypizza.data
+package com.example.familypizza.data.local
 
 import androidx.room.Dao
 import androidx.room.Insert
