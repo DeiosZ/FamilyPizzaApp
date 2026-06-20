@@ -13,3 +13,10 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Configuracion de Firebase (contiene API key) - no subir a repo publico
+/app/google-services.json
+
+# Scripts locales con credenciales / rutas de la PC
+/seed_firestore.sh
+/instalar_en_celular.sh

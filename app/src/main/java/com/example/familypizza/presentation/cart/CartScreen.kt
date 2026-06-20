@@ -76,9 +76,18 @@ fun CartScreen(
                     Text("Total", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Black)
                     Text("S/ ${"%.2f".format(uiState.total)}", style = MaterialTheme.typography.titleMedium, color = FamilyRed, fontWeight = FontWeight.Black)
                 }
+                if (uiState.error.isNotBlank()) {
+                    Spacer(Modifier.height(8.dp))
+                    Text(uiState.error, color = Color(0xFFB71C1C), fontWeight = FontWeight.Bold)
+                }
+                if (uiState.isLoading) {
+                    Spacer(Modifier.height(8.dp))
+                    LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
+                }
                 Spacer(Modifier.height(12.dp))
                 Button(
                     onClick  = onCheckout,
+                    enabled = !uiState.isLoading,
                     modifier = Modifier.fillMaxWidth(),
                     shape    = RoundedCornerShape(8.dp),
                     colors   = ButtonDefaults.buttonColors(containerColor = FamilyRed),

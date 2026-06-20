@@ -1,0 +1,20 @@
+rules_version = '2';
+
+// Reglas de seguridad de Cloud Firestore para FamilyPizzaApp.
+// Permiten leer/escribir SOLO a usuarios autenticados (login por correo o Google).
+// El admin y los clientes inician sesion en la app, por lo que cumplen esta condicion.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // products, orders, users: acceso para cualquier usuario autenticado.
+    match /{document=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
+
+// ──────────────────────────────────────────────────────────────────────────
+// NOTA: si solo estas PROBANDO en clase y quieres permitir todo sin sesion,
+// reemplaza la linea de arriba por:  allow read, write: if true;
+// (NO uses "if true" en una app real: deja la base abierta a cualquiera.)
+// ──────────────────────────────────────────────────────────────────────────
